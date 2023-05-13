@@ -20,13 +20,13 @@ public class AccountInfo : MonoBehaviour
     [SerializeField] private int _iconID;
     [SerializeField] private string _name;
 
-    public AccountLevel accountLevel = new AccountLevel();
-
     public string Name { get { return _name; } }
+
+    private PlayerPrefsSaver _prefsSaver = new PlayerPrefsSaver();
     private void Awake()
     {
         _accountInfoPanel.SetActive(false);
-        LoadInfo();
+        _prefsSaver.Load<SaveAccount>(KEY, LoadInfo);
         if (!firstLoadGame)
         {
             SetAccountInfoUI();
@@ -46,21 +46,15 @@ public class AccountInfo : MonoBehaviour
         saveAccount.IconId = _iconID;
         saveAccount.Name = _name;
         saveAccount.firstLoadGame = firstLoadGame;
-        saveAccount.Level = accountLevel.Level;
-        saveAccount.Exp = accountLevel.Exp;
-
-        PlayerPrefs.SetString(KEY, JsonUtility.ToJson(saveAccount));
+        _prefsSaver.Save(KEY, saveAccount);
     }
-    private void LoadInfo()
+    private void LoadInfo(SaveAccount saveAccount)
     {
-        SaveAccount saveAccount = new SaveAccount();
-        saveAccount = JsonUtility.FromJson<SaveAccount>(PlayerPrefs.GetString(KEY));
         if (saveAccount == null)
             return;
 
         _iconID = saveAccount.IconId;
         _name = saveAccount.Name;
-        accountLevel.LoadLevel(saveAccount.Level, saveAccount.Exp);
 
         firstLoadGame = saveAccount.firstLoadGame;
     }
@@ -80,8 +74,6 @@ public class AccountInfo : MonoBehaviour
 
         SaveInfo();
     }
-
-
 }
 [Serializable]
 class SaveAccount
@@ -90,7 +82,5 @@ class SaveAccount
 
     public int IconId;
     public string Name;
-    public int Level;
-    public float Exp;
 
 }

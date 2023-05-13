@@ -7,22 +7,29 @@ using UnityEngine.UI;
 
 public class AccountLevelView : MonoBehaviour
 {
+    [SerializeField] private AccountLevel _interactor;
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private Image _levelExpLine;
-    private AccountInfo accountInfo;
 
     private void Start()
     {
-        accountInfo = GameObject.FindObjectOfType<AccountInfo>();
-        accountInfo.accountLevel.onExpUpdate += UpdateLevelInfo;
-        UpdateLevelInfo(accountInfo.accountLevel.Level, accountInfo.accountLevel.Exp);
+        _interactor.onExpUpdate += UpdateLevelInfo;
+        UpdateLevelInfo(_interactor.GetLevelValue(), _interactor.GetExpValue());
     }
     void UpdateLevelInfo(int level, float exp)
     {
         _levelText.text = level.ToString() + " Level";
-        Debug.Log("exp: "+exp);
-        Debug.Log("exp/1000: "+exp/1000);
         _levelExpLine.fillAmount = exp/1000;
-
+    }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.O))
+        {
+            _interactor.AddExp(10);
+        }
+        if (Input.GetKey(KeyCode.N))
+        {
+            _interactor.AddExp(10, 1);
+        }
     }
 }

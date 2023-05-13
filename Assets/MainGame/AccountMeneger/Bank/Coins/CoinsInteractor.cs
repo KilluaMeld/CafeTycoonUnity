@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class CoinsInteractor : MonoBehaviour
 {
-    public delegate void OnChangeCoins(float coins);
-    public OnChangeCoins onChange;
+    public Action<float> onChangeCoins;
 
     CoinsRepository coinsRepository;
-    private void Start()
+    private void Awake()
     {
         coinsRepository = new CoinsRepository();
-        coinsRepository.Initialize();
+        onChangeCoins?.Invoke(coinsRepository.Coins);
     }
 
     public float GetCoinsValue()
@@ -22,7 +20,7 @@ public class CoinsInteractor : MonoBehaviour
     {
         coinsRepository.Coins += value;
         coinsRepository.Save();
-        onChange?.Invoke(coinsRepository.Coins);
+        onChangeCoins?.Invoke(coinsRepository.Coins);
     }
     public void SpendCoins(object sender, float value)
     {
@@ -30,7 +28,7 @@ public class CoinsInteractor : MonoBehaviour
         {
             coinsRepository.Coins -= value;
             coinsRepository.Save();
-            onChange?.Invoke(coinsRepository.Coins);
+            onChangeCoins?.Invoke(coinsRepository.Coins);
         }
         else
         {
