@@ -7,22 +7,36 @@ using TMPro;
 public class SetMenuPosition : MonoBehaviour
 {
     [SerializeField] private Image icon;
-    [SerializeField] private TextMeshProUGUI name;
-    [SerializeField] private TextMeshProUGUI cost;
-    [SerializeField] private ItemInfo[] itemsInfo;
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private IngredientInfo[] itemsInfoIngedients;
+    [SerializeField] private GameObject _ingedientsPrefab;
+    [SerializeField] private Transform _ingedientsTransform;
 
 
     public int catergory;
-    public Item item;
-    public void SetItemInfo(Item item)
+    public Recipe recipe;
+    public void SetItemInfo(Recipe recipe)
     {
-        this.item = item;
-        icon.sprite = item.Data.Icon;
+        this.recipe = recipe;
+        icon.sprite = recipe.Data.Icon;
         //name.text = Localization.Instance.GetLocalizationFromKey(item.Key);
-        name.text = item.Data.Key;
-        cost.text = item.Data.Cost.ToString();
-        itemsInfo = item.Data.Ingredients;
+        nameText.text = recipe.Data.Key;
+        itemsInfoIngedients = recipe.Data.Ingredients;
+        SetIngredientsList();
     }
+    private void SetIngredientsList()
+    {
+
+        foreach (var item in itemsInfoIngedients)
+        {
+            GameObject gm = Instantiate(_ingedientsPrefab, _ingedientsTransform);
+            SetIngredientPosition ingr = gm.GetComponent<SetIngredientPosition>();
+            ingr.SetIngredientInfo(GameObject.FindObjectOfType<LoadIngredientsList>().GetIngredient(item.Key));
+        }
+        
+
+    }
+
 
     public void DisableItem()
     {

@@ -6,6 +6,10 @@ public class PlayerPrefsSaver : IPlayerPrefsSaver
     public void Load<T>(string key, Action<T> callback)
     {
         var data = JsonUtility.FromJson<T>(PlayerPrefs.GetString(key));
+
+        if (data == null)
+            return;
+
         callback?.Invoke(data);
     }
 
