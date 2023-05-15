@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Espresso
   m_EditorClassIdentifier: 
   key: Espresso
-  category: 1
-  icon: {fileID: 0}
-  ingredients: []
-  cost: 120
+  category: 0
+  icon: {fileID: 21300000, guid: 533d6cc31b7a1924588363d9ac775349, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: d5c80cbe06976174a811de8cd3ed0494, type: 2}
+  level: 0

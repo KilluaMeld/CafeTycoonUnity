@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c9fe5e867850c74487a25a1f97e3cef, type: 3}
   m_Name: Cinnamon
   m_EditorClassIdentifier: 
-  key: 
+  key: Cinnamon
   category: 0
-  icon: {fileID: 0}
-  prise: 0
+  icon: {fileID: 21300000, guid: ff8979c8e3c2ab446bd687b4d778c6a2, type: 3}
+  prise: 120
+  currency: 0
   level: 0
