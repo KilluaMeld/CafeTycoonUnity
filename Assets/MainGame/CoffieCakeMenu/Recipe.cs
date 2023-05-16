@@ -2,7 +2,7 @@ using System;
 
 public class Recipe
 {
-    Action onChange;
+    public Action onChange;
 
     public RecipeInfo Data;
     public bool IsHas;
@@ -19,8 +19,9 @@ public class Recipe
     }
     void LoadData(Recipe save)
     {
-        save.IsHas = IsHas;
-        save.Prise = Prise;
+        IsHas = save.IsHas;
+        Prise = save.Prise;
+        onChange?.Invoke();
     }
     void SaveData()
     {
@@ -32,12 +33,17 @@ public class Recipe
 
         onChange?.Invoke();
     }
-    public void ChangePrise(float value)
+    public void PlusPrise()
     {
-        Prise += value;
-        if (Prise <=1)
-            Prise = 1;
+        Prise++;
 
+        onChange?.Invoke();
+    }
+    public void MinusPrise()
+    {
+        Prise--;
+        if (Prise <= 1)
+            Prise = 1;
         onChange?.Invoke();
     }
 }

@@ -2,7 +2,7 @@ using System;
 
 public class Ingredient
 {
-    Action onChange;
+    public Action onChange;
 
     public IngredientInfo Data;
     public int Ammount;
@@ -18,7 +18,8 @@ public class Ingredient
     }
     void LoadData(Ingredient save)
     {
-        save.Ammount = Ammount;
+        Ammount = save.Ammount;
+        onChange?.Invoke();
     }
     void SaveData()
     {

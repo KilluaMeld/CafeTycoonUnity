@@ -22,17 +22,19 @@ public class CoinsInteractor : MonoBehaviour
         coinsRepository.Save();
         onChangeCoins?.Invoke(coinsRepository.Coins);
     }
-    public void SpendCoins(object sender, float value)
+    public bool SpendCoins(object sender, float value)
     {
         if (coinsRepository.Coins >= value)
         {
             coinsRepository.Coins -= value;
             coinsRepository.Save();
             onChangeCoins?.Invoke(coinsRepository.Coins);
+            return true;
         }
         else
         {
             Debug.Log("enough coins");
+            return false;
         }
     }
 }

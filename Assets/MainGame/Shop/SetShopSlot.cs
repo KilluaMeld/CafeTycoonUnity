@@ -21,11 +21,18 @@ public class SetShopSlot : MonoBehaviour
         Prise.text = Converter.FormatNum(ingredient.Data.Prise);
 
         buyButton.onClick.AddListener(CreateBuyPanel);
+        ingredient.onChange += UndateStockInfo;
     }
     private void OnEnable()
     {
+        UndateStockInfo();
+    }
+
+    private void UndateStockInfo()
+    {
         inStock.text = Converter.FormatNum(ingredient.Ammount);
     }
+
     public void DisableItem()
     {
         this.gameObject.SetActive(false);
@@ -37,6 +44,8 @@ public class SetShopSlot : MonoBehaviour
     void CreateBuyPanel()
     {
         canvasTransform = GameObject.FindObjectOfType<Canvas>().transform;
-        Instantiate(buyPanelPrefab, canvasTransform);
+        var gm = Instantiate(buyPanelPrefab, canvasTransform);
+        var setBuyPanel = gm.GetComponent<SetBuyPanelInfo>();
+        setBuyPanel.SetShopSlotInfo(ingredient);
     }
 }

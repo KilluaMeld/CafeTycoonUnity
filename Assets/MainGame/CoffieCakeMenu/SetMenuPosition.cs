@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using ConvertsDigits;
+using UnityEditor.Rendering.LookDev;
 
 public class SetMenuPosition : MonoBehaviour
 {
@@ -12,6 +12,12 @@ public class SetMenuPosition : MonoBehaviour
     [SerializeField] private GameObject _ingedientsPrefab;
     [SerializeField] private Transform _ingedientsTransform;
 
+    [SerializeField] private GameObject learnPanel;
+    [SerializeField] private Button learnButton;
+    [SerializeField] private GameObject prisePanel;
+    [SerializeField] private TextMeshProUGUI priceValueText;
+    [SerializeField] private Button plusPriseButton;
+    [SerializeField] private Button minusPriseButton;
 
     public int catergory;
     public Recipe recipe;
@@ -22,7 +28,30 @@ public class SetMenuPosition : MonoBehaviour
         //name.text = Localization.Instance.GetLocalizationFromKey(item.Key);
         nameText.text = recipe.Data.Key;
         itemsInfoIngedients = recipe.Data.Ingredients;
+
+        recipe.onChange += UpdatePriseText;
+
+        learnButton.onClick.AddListener(SetDefoultPrise);
+        learnButton.onClick.AddListener(recipe.LearnRecipe);
+        plusPriseButton.onClick.AddListener(recipe.PlusPrise);
+        minusPriseButton.onClick.AddListener(recipe.MinusPrise);
+
         SetIngredientsList();
+    }
+
+    private void SetDefoultPrise()
+    {
+        float sum = 0f;
+        foreach (var item in itemsInfoIngedients)
+        {
+            sum += item.Prise;
+            Debug.Log(sum);
+        }
+        recipe.Prise = sum;
+    }
+    private void OnEnable()
+    {
+        UpdatePriseText();
     }
     private void SetIngredientsList()
     {
@@ -33,10 +62,21 @@ public class SetMenuPosition : MonoBehaviour
             SetIngredientPosition ingr = gm.GetComponent<SetIngredientPosition>();
             ingr.SetIngredientInfo(GameObject.FindObjectOfType<LoadIngredientsList>().GetIngredient(item.Key));
         }
-        
-
     }
-
+    private void UpdatePriseText()
+    {
+        if (recipe.IsHas == true)
+        {
+            learnPanel.SetActive(false);
+            prisePanel.SetActive(true);
+        }
+        else
+        {
+            learnPanel.SetActive(true);
+            prisePanel.SetActive(false);
+        }
+        priceValueText.text = Converter.FormatNum(recipe.Prise);
+    }
 
     public void DisableItem()
     {
