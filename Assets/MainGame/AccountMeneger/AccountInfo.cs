@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using Unity.VisualScripting;
 
 public class AccountInfo : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class AccountInfo : MonoBehaviour
     const string KEY = "ACCOUNTINFO";
 
 
-    [SerializeField] private Sprite[] _iconsList;
     [SerializeField] private GameObject _accountInfoPanel;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Image _iconImage;
@@ -20,6 +20,9 @@ public class AccountInfo : MonoBehaviour
     [SerializeField] private int _iconID;
     [SerializeField] private string _name;
 
+    [SerializeField] private CafeActivity cafeActivity;
+
+    public Sprite[] _iconsList;
     public string Name { get { return _name; } }
 
     private PlayerPrefsSaver _prefsSaver = new PlayerPrefsSaver();
@@ -32,9 +35,12 @@ public class AccountInfo : MonoBehaviour
             SetAccountInfoUI();
 
             _accountInfoPanel.SetActive(true);
+
+            cafeActivity.TimeCafeActivityScaler = 1;
         }
         else
         {
+            cafeActivity.TimeCafeActivityScaler = 0;
             Instantiate(_newAccountPanelPrefab, _canvasTransform);
         }
 

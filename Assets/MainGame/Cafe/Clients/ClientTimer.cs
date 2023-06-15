@@ -1,18 +1,17 @@
 using System;
 using UnityEngine;
 
-public class ClientTimer : MonoBehaviour
+public class ClientTimer
 {
     public Action onEndTimer;
 
-    [SerializeField] private float _tickForCancelOrder;
+    float _tickForCancelOrder;
     private float _currentTicks;
-    private CafeActivity cafeActivity;
-
-    private void Start()
+    public ClientTimer(float tickForCancelOrder)
     {
-        cafeActivity = GameObject.FindObjectOfType<CafeActivity>();
-        cafeActivity.onCafeActivityTick += TryGenerateClient;
+
+        _tickForCancelOrder = tickForCancelOrder;
+        GameObject.FindObjectOfType<CafeActivity>().onCafeActivityTick += TryGenerateClient;
     }
     void TryGenerateClient()
     {

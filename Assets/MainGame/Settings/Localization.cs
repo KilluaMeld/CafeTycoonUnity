@@ -29,7 +29,33 @@ public class Localization : MonoBehaviour
         {"watch ad to revive?", new string[]{ "watch ad to revive?", "посмотреть рекламу, чтобы продолжить?", "подивитися рекламу, щоб продовжити?" }},
         {"MAX DISTANCE", new string[]{ "MAX DISTANCE", "МАКСИМАЛЬНОЕ РАССТОЯНИЕ", "МАКСИМАЛЬНА ВІДСТАНЬ" }},
         {"TAP TO PLAY", new string[]{ "TAP TO\nPLAY", "Нажмите\nчтобы\nиграть", "Клацнiть\nщоб грати" }},
-        {"TAP TO RESUME", new string[]{ "TAP TO\nRESUME", "Нажмите\nчтобы\nпродолжить", "Клацнiть\nщоб грати" }}
+        {"TAP TO RESUME", new string[]{ "TAP TO\nRESUME", "Нажмите\nчтобы\nпродолжить", "Клацнiть\nщоб грати" }},
+        {"answer1Text1", new string[]{ "Yes, of course!", "Да, Конечно!", "Так, звичайно!" }},
+        {"answer1Text2", new string[]{ "I vaguely remember something.", "Что-то припоминаю.", "Щось пригадую." }},
+        {"answer1Text3", new string[]{ "I've already forgotten something.", "Что-то уже и забылось.", "Щось уже забулося." }},
+        {"answer2Text1", new string[]{ "Hmm, that's interesting!", "Хм, это интересно!", "Гм, це цікаво!" }},
+        {"answer2Text2", new string[]{ "I want to take a look at the room.", "Хочу бы взглянуть на помещение.", "Хочу подивитись на приміщення." }},
+        {"answer2Text3", new string[]{ 
+            "I'm interested to see if it's\n" +
+            "suitable. Let's take it before\n" +
+            "anyone else gets ahead of us!",
+            
+            "Мне интересно увидеть, оно\n" +
+            "может подойти. Забираем пока никто\n" +
+            "никто не опередил нас!",
+            
+            "Цікаво побачити, чи підійде\n" +
+            "це. Забираємо, поки ніхто\n" +
+            "нас не випередив!" }},
+
+        {"emiliaAnswer1", new string[]{ "Hi! Do you remember you asked\nme to find a place?", "Привет! Помнишь ты просил\nменя найти помещение?", "Привіт! Пам'ятаєш, ти просив\nмене знайти приміщення?" }},
+        {"emiliaAnswer2", new string[]{ "There is an option. It's in a great neighborhood!", "Есть вариант. Оно в хорошем районе!", "Є варіант. Він знаходиться у хорошому районі!" }},
+        {"emiliaAnswer3", new string[]{ "It's absolutely perfect\nfor your coffee shop!", "Для твоей кофейни просто супер!!!", "Для твоєї кав'ярні просто супер!!!" }},
+        {"emiliaAnswer4", new string[]{ "However, there is a small catch.", "Правда есть небольшой нюанс.", "Проте, є невеликий нюанс." }},
+        {"emiliaAnswer5", new string[]{ "The place is in need of some renovation.", "Помещение нуждается в хорошем ремонте.", "Приміщення потребує хорошого ремонту." }},
+        {"emiliaAnswer6", new string[]{ "Great! I'll arrange a meeting for now,\nand meanwhile, we can choose\na name for the new coffee shop.", "Отлично, я пока устрою встречу,\nа пока можно выбрать название\nновой кофейни.", "Чудово! Зараз я організую зустріч,\nа поки ми можемо обрати назву\nдля нової кав'ярні." }},
+        {"emiliaAnswer7", new string[]{ "The name is very important, but we\ncan always change it later if needed.", "Название очень важно, но если\nчто его можно потом поменять.", "Назва дуже важлива, але якщо що,\nми завжди можемо змінити її пізніше." }}
+    
     };
 
     public enum LanguageList

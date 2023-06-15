@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ApplicationSettings : MonoBehaviour
@@ -33,8 +31,6 @@ public class ApplicationSettings : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        //_allSettings = Resources.FindObjectsOfTypeAll(typeof(ISetting)) as ISetting[];
         var d = new List<ISetting>();
         foreach (var item in _allSettingsObj)
         {

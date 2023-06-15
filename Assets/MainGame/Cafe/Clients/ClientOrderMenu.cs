@@ -1,9 +1,13 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ClientOrderMenu : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _name;
+    [SerializeField] private Image _icon;
+
     [SerializeField] private Button _backPanel;
     [SerializeField] private Button _backButton;
     [SerializeField] private Button _cancel;
@@ -12,6 +16,11 @@ public class ClientOrderMenu : MonoBehaviour
     public Action onAccept;
     public Action onCancel;
 
+    public void SetClientInfo(ClientInfo clientInfo)
+    {
+        _name.text = clientInfo.Name;
+        _icon.sprite = clientInfo.Icon;
+    }
     private void Start()
     {
         _cancel.onClick.AddListener(CancelOrder);

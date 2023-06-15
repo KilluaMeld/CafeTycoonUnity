@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class CafeActivity : MonoBehaviour
 {
-    [SerializeField] public float TimeCafeActivityScaler;
+    public float TimeCafeActivityScaler;
 
     [SerializeField] private float _timeForCafeTick;
     [SerializeField] private float _currentTime;
-
     public Action onCafeActivityTick;
-    private void Start()
+    private void Awake()
     {
         StartCoroutine(CreateNewClients());
     }
@@ -19,6 +18,11 @@ public class CafeActivity : MonoBehaviour
     {
         while (true)
         {
+            if (TimeCafeActivityScaler == 0)
+            {
+                yield return new WaitForSecondsRealtime(1);
+                continue;
+            }
             yield return new WaitForSecondsRealtime(1* TimeCafeActivityScaler);
             _currentTime += 1;
             if (_currentTime >= _timeForCafeTick)

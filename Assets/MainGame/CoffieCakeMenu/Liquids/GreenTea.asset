@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c20a3b40132c2f48ae93d0276549936, type: 3}
   m_Name: GreenTea
   m_EditorClassIdentifier: 
-  key: GreenTea
+  key: Green Tea
   category: 0
-  icon: {fileID: 0}
-  ingredients: []
-  cost: 100
+  icon: {fileID: 21300000, guid: bbf0f463fdf10dc4388d2772828fe48a, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: 1b1e5774b8c81c54190fcb2b81e4c44f, type: 2}
+  - {fileID: 11400000, guid: c55448cb3d1f6c24f8ba6a71b54d3c85, type: 2}
+  level: 0

@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class ClietnsGenerator : MonoBehaviour
 {
+    [SerializeField] private ClientInfo[] clientInfos;
     [SerializeField] private float _tickForNewClient;
     private float _currentTicks;
     private CafeActivity cafeActivity;
 
     [SerializeField] private int _numberOfSeatsInTheCafe;
-    [SerializeField] private GameObject _clientIconPrefab;
+    [SerializeField] private GameObject _clientIControlPrefab;
     private Transform _canvasTransform;
 
     private void Start()
@@ -36,7 +37,8 @@ public class ClietnsGenerator : MonoBehaviour
             return;
 
         _numberOfSeatsInTheCafe--;
-        Instantiate(_clientIconPrefab, _canvasTransform);
+        var clI = Instantiate(_clientIControlPrefab, _canvasTransform).GetComponent<ClientControl>();
+        clI.SetClientInfo(clientInfos[Random.Range(0, clientInfos.Length)]);
 
     }
 

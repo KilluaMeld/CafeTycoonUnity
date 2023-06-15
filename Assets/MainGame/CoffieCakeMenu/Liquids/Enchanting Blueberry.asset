@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c20a3b40132c2f48ae93d0276549936, type: 3}
+  m_Name: Enchanting Blueberry
+  m_EditorClassIdentifier: 
+  key: Enchanting Blueberry
+  category: 5
+  icon: {fileID: 21300000, guid: 4f46caa39d22e0f4a828790a82657e7b, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: 7811e13ad38256347b5dc78809ede30f, type: 2}
+  - {fileID: 11400000, guid: 1b1e5774b8c81c54190fcb2b81e4c44f, type: 2}
+  - {fileID: 11400000, guid: 52e6be456b502a84e92324652803eca1, type: 2}
+  - {fileID: 11400000, guid: ff7c8c29b713b754aa78da08fa6474c6, type: 2}
+  level: 0

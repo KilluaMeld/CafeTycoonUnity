@@ -3,7 +3,42 @@ guid: 285009ecba7f168459c91832e50b3f46
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mmd_edge.disabled
+    second: {fileID: 2100000, guid: 6cf177c2bac803f4a8a281312d37350c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "mmd_edge.\u4E1D\u889C"
+    second: {fileID: 2100000, guid: 6cf177c2bac803f4a8a281312d37350c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "mmd_edge.\u5934\u53D1"
+    second: {fileID: 2100000, guid: 6cf177c2bac803f4a8a281312d37350c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "mmd_edge.\u5E3D\u5B50"
+    second: {fileID: 2100000, guid: 6cf177c2bac803f4a8a281312d37350c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "mmd_edge.\u8170\u5E26"
+    second: {fileID: 2100000, guid: 6cf177c2bac803f4a8a281312d37350c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u4E1D\u889C"
+    second: {fileID: 2100000, guid: 6cf177c2bac803f4a8a281312d37350c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u5934\u53D1"
+    second: {fileID: 2100000, guid: 6cf177c2bac803f4a8a281312d37350c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

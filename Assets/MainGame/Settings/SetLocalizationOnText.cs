@@ -8,14 +8,19 @@ public class SetLocalizationOnText : MonoBehaviour
     {
         SetString();
         ApplicationSettings.instance.Localizations.localizationDelegate += SetString;
+        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(true);
     }
-
+    private void OnDestroy()
+    {
+        ApplicationSettings.instance.Localizations.localizationDelegate -= SetString;
+    }
     void SetString()
     {
         if (_key == "") return;
         var tuple = ApplicationSettings.instance.Localizations.GetLocalization(_key);
         var tmp = this.GetComponent<TextMeshProUGUI>();
-        tmp.font = tuple.Item1;
+        //tmp.font = tuple.Item1;
         tmp.text = tuple.Item2;
     }
 }
