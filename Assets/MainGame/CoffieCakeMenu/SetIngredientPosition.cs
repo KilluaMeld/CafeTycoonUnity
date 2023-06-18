@@ -23,7 +23,7 @@ public class SetIngredientPosition : MonoBehaviour
         else
             _lock.SetActive(false);
         
-        if (item.Ammount < 0)
+        if (item.Ammount <= 0)
             _dark.SetActive(true);
         else
             _dark.SetActive(false);

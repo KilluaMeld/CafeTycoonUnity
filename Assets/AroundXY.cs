@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[InitializeOnLoad]
 public class AroundXY : MonoBehaviour
 {
-    [SerializeField] Vector2Int _size = Vector2Int.one;
+    /*[SerializeField] Vector2Int _size = Vector2Int.one;
     AroundXY()
     {
         EditorApplication.update += OnEditorUpdate;
@@ -34,5 +31,5 @@ public class AroundXY : MonoBehaviour
                 Gizmos.DrawCube(transform.position + new Vector3(x, 0, y), new Vector3(1, 1, 1));
             }
         }
-    }
+    }*/
 }

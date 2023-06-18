@@ -1,19 +1,24 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class BeginnerGuide : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject phoneWithNotification;
-    [SerializeField] private TextMeshProUGUI firstText;
-    [SerializeField] private TextMeshProUGUI secondText;
-    public void SetFirstText(string key)
+    [SerializeField] private InstatiateNewMessage personMessagePrefab;
+    [SerializeField] private InstatiateNewMessage youMessagePrefab;
+    [SerializeField] private Transform transformForMessages;
+    [SerializeField] private ScrollRect scrollRect;
+    public void InstatiatePersonMessage(string key)
     {
-        firstText.text = ApplicationSettings.instance.Localizations.GetLocalizationFromKey(key);
+        Instantiate(personMessagePrefab, transformForMessages).SetMessage(key);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.content);
     }
-    public void SetSecondText(string key)
+    public void InstatiateYouMessage(string key)
     {
-        secondText.text = ApplicationSettings.instance.Localizations.GetLocalizationFromKey(key);
+        Instantiate(youMessagePrefab, transformForMessages).SetMessage(key);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.content);
     }
     public void CloseNotification()
     {

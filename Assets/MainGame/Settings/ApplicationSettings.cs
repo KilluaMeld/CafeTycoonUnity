@@ -38,6 +38,26 @@ public class ApplicationSettings : MonoBehaviour
         }
         _allSettings = d.ToArray();
         Debug.Log(_allSettings.Length);
+        SystemLanguage currentLanguage = Application.systemLanguage;
+        switch (currentLanguage)
+        {
+            case SystemLanguage.Russian:
+                ApplicationSettings.instance.Localizations.SetLanguage(1);
+                Debug.Log("язык устройства: –усский");
+                break;
+            case SystemLanguage.Ukrainian:
+                ApplicationSettings.instance.Localizations.SetLanguage(2);
+                Debug.Log("Device Language: English");
+                break;
+            case SystemLanguage.English:
+                ApplicationSettings.instance.Localizations.SetLanguage(0);
+                Debug.Log("Device Language: English");
+                break;
+            default:
+                ApplicationSettings.instance.Localizations.SetLanguage(0);
+                Debug.Log("язык устройства: " + currentLanguage.ToString());
+                break;
+        }
         LoadSave();
         foreach (var setting in _allSettings)
         {

@@ -49,6 +49,8 @@ public class CreateNewAccount : MonoBehaviour
     public void ConfirmRegistration()
     {
         acccountInfo.SetNewAccountInfo(nickname, iconId);
+        GameObject.FindObjectOfType<CoinsInteractor>().AddCoins(this, 1500);
+        GameObject.FindObjectOfType<RubyInteractor>().AddRuby(this, 150);
         Destroy(this.gameObject);
     }
 }

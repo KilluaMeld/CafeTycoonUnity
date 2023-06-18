@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
   balance:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 43.8
 --- !u!114 &-7630375787377890387
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -187,7 +187,7 @@ MonoBehaviour:
     m_Value: 0.45
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.6
   scatter:
     m_OverrideState: 1
     m_Value: 0

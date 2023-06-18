@@ -8,6 +8,9 @@ public class ClientOrderMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private Image _icon;
 
+    [SerializeField] private Transform transformForPositions;
+    [SerializeField] private SetOrderPosition orderPrefab;
+
     [SerializeField] private Button _backPanel;
     [SerializeField] private Button _backButton;
     [SerializeField] private Button _cancel;
@@ -43,6 +46,10 @@ public class ClientOrderMenu : MonoBehaviour
     {
         this.gameObject.SetActive(false);
     }
-
+    public void CreateOrderPosition(Recipe recipe)
+    {
+        var order = Instantiate(orderPrefab, transformForPositions);
+        order.SetItemInfo(recipe);
+    }
 
 }

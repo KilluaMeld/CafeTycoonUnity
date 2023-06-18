@@ -38,4 +38,8 @@ public class LoadRecipeList : MonoBehaviour
     {
         return recipeList;
     }
+    public List<Recipe> GetAllOpenRecipes()
+    {
+        return recipeList.FindAll(item => item.IsHas);
+    }
 }

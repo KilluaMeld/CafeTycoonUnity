@@ -35,15 +35,15 @@ public class Localization : MonoBehaviour
         {"answer1Text3", new string[]{ "I've already forgotten something.", "Что-то уже и забылось.", "Щось уже забулося." }},
         {"answer2Text1", new string[]{ "Hmm, that's interesting!", "Хм, это интересно!", "Гм, це цікаво!" }},
         {"answer2Text2", new string[]{ "I want to take a look at the room.", "Хочу бы взглянуть на помещение.", "Хочу подивитись на приміщення." }},
-        {"answer2Text3", new string[]{ 
+        {"answer2Text3", new string[]{
             "I'm interested to see if it's\n" +
             "suitable. Let's take it before\n" +
             "anyone else gets ahead of us!",
-            
+
             "Мне интересно увидеть, оно\n" +
             "может подойти. Забираем пока никто\n" +
             "никто не опередил нас!",
-            
+
             "Цікаво побачити, чи підійде\n" +
             "це. Забираємо, поки ніхто\n" +
             "нас не випередив!" }},
@@ -54,8 +54,31 @@ public class Localization : MonoBehaviour
         {"emiliaAnswer4", new string[]{ "However, there is a small catch.", "Правда есть небольшой нюанс.", "Проте, є невеликий нюанс." }},
         {"emiliaAnswer5", new string[]{ "The place is in need of some renovation.", "Помещение нуждается в хорошем ремонте.", "Приміщення потребує хорошого ремонту." }},
         {"emiliaAnswer6", new string[]{ "Great! I'll arrange a meeting for now,\nand meanwhile, we can choose\na name for the new coffee shop.", "Отлично, я пока устрою встречу,\nа пока можно выбрать название\nновой кофейни.", "Чудово! Зараз я організую зустріч,\nа поки ми можемо обрати назву\nдля нової кав'ярні." }},
-        {"emiliaAnswer7", new string[]{ "The name is very important, but we\ncan always change it later if needed.", "Название очень важно, но если\nчто его можно потом поменять.", "Назва дуже важлива, але якщо що,\nми завжди можемо змінити її пізніше." }}
-    
+        {"emiliaAnswer7", new string[]{ "The name is very important, but we\ncan always change it later if needed.", "Название очень важно, но если\nчто его можно потом поменять.", "Назва дуже важлива, але якщо що,\nми завжди можемо змінити її пізніше." }},
+        {"enterNewMessage", new string[]{ "Enter you\nnew message here", "Введите ваше\nновое сообщение здесь", "Введіть ваше\nнове повідомлення тут" }},
+        {"cafeOpening", new string[]{ "Cafe opening", "Открытие кафе", "Відкриття кафе" }},
+        {"enterCoffeeShopName", new string[]{ "Enter coffee shop name", "Введите название кофейни", "Введіть назву кав'ярні" }},
+        {"confirm", new string[]{ "Confirm", "Подтвердить", "Підтвердити" }},
+        {"level", new string[]{ "Level", "Уровень", "Рівень" }},
+        {"chooseCoffeeShopIcon", new string[]{ "Choose coffee shop icon", "Выберите иконку кофейни", "Оберіть іконку кав'ярні" }},
+        {"recipeMenu", new string[]{ "Recipe menu", "Меню рецептов", "Меню рецептів" }},
+        {"tea", new string[]{ "Tea", "Чай", "Чай" }},
+        {"coffee", new string[]{ "Coffee", "Кофе", "Кава" }},
+        {"cocoa", new string[]{ "Cocoa", "Какао", "Какао" }},
+        {"juice", new string[]{ "Juice", "Сок", "Сік" }},
+        {"cocktails", new string[]{ "Cocktails", "Коктейли", "Коктейлі" }},
+        {"cake", new string[]{ "Cake", "Пирожное", "Торт" }},
+        {"other", new string[]{ "Other", "Другое", "Інше" }},
+        {"shop", new string[]{ "Shop", "Магазин", "Магазин" }},
+        {"bank", new string[]{ "Bank", "Банк", "Банк" }},
+        {"ingredients", new string[]{ "Ingredients", "Ингредиенты", "Інгредієнти" }},
+        {"equipment", new string[]{ "Equipment", "Оборудование", "Обладнання" }},
+        {"tables", new string[]{ "Tables", "Столы", "Столи" }},
+        {"chairs", new string[]{ "Chairs", "Стулья", "Стільці" }},
+        {"emilia", new string[]{ "EMILIA", "ЭМИЛИЯ", "ЕМІЛІЯ" }},
+        {"open", new string[]{ "Open", "Открыть", "Відкрити" }},
+        {"writeMessage", new string[]{ "Write a message", "Напишите сообщение", "Напишіть повідомлення" }},
+        {"settings", new string[]{ "Settings", "Настройки", "Налаштування" }}
     };
 
     public enum LanguageList

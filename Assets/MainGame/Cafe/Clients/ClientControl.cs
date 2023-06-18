@@ -5,10 +5,10 @@ public class ClientControl : MonoBehaviour
 {
     [SerializeField] GameObject _iconPrefab;
     [SerializeField] Transform _questTransform;
-    [SerializeField] GameObject _orderMenuPrefab;
-    [SerializeField] Transform _canvasTransform; 
+    [SerializeField] ClientOrderMenu _orderMenuPrefab;
+    [SerializeField] Transform _canvasTransform;
     private GameObject iconOrder;
-    private GameObject menuOrder;
+    [SerializeField] private ClientOrderMenu menuOrder;
     ClientTimer clientTimer;
     public void SetClientInfo(ClientInfo clientInfo)
     {
@@ -16,18 +16,21 @@ public class ClientControl : MonoBehaviour
         _questTransform = GameObject.FindGameObjectWithTag("UIQuestsPanel").GetComponent<Transform>();
         _canvasTransform = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<Transform>();
 
-        GenerateOrder();
 
         iconOrder = Instantiate(_iconPrefab, _questTransform);
         iconOrder.GetComponent<Button>().onClick.AddListener(OpenOrderMenu);
         iconOrder.GetComponent<Image>().sprite = clientInfo.Icon;
         clientTimer.onEndTimer += CancelOrder;
+        clientTimer.onTickTimerEvent += iconOrder.GetComponent<ClientTimerView>().UpdateLineView;
 
-        menuOrder = Instantiate(_orderMenuPrefab, _canvasTransform) as GameObject;
-        menuOrder.SetActive(false);
-        menuOrder.GetComponent<ClientOrderMenu>().SetClientInfo(clientInfo);
-        menuOrder.GetComponent<ClientOrderMenu>().onAccept += SuccessfulOrder;
-        menuOrder.GetComponent<ClientOrderMenu>().onCancel += CancelOrder;
+        menuOrder = Instantiate(_orderMenuPrefab, _canvasTransform);
+        menuOrder.gameObject.SetActive(false);
+        menuOrder.SetClientInfo(clientInfo);
+        menuOrder.onAccept += SuccessfulOrder;
+        menuOrder.onCancel += CancelOrder;
+
+
+        GenerateOrder();
     }
 
     private void SuccessfulOrder()
@@ -47,10 +50,12 @@ public class ClientControl : MonoBehaviour
     }
     private void OpenOrderMenu()
     {
-        menuOrder.SetActive(true);
+        menuOrder.gameObject.SetActive(true);
     }
     private void DestroyClient()
     {
+        clientTimer.DisabeTimer();
+        clientTimer.onTickTimerEvent -= iconOrder.GetComponent<ClientTimerView>().UpdateLineView;
         Destroy(iconOrder);
         Destroy(menuOrder);
         Destroy(this.gameObject);
@@ -59,11 +64,21 @@ public class ClientControl : MonoBehaviour
     private void CancelAllActions()
     {
         clientTimer.onEndTimer -= CancelOrder;
-        menuOrder.GetComponent<ClientOrderMenu>().onAccept -= SuccessfulOrder;
-        menuOrder.GetComponent<ClientOrderMenu>().onCancel -= CancelOrder;
+        menuOrder.onAccept -= SuccessfulOrder;
+        menuOrder.onCancel -= CancelOrder;
     }
     void GenerateOrder()
     {
-
+        var recipes = GameObject.FindObjectOfType<LoadRecipeList>();
+        Debug.Log(recipes);
+        var openRecipes = recipes.GetAllOpenRecipes();
+        Debug.Log(openRecipes);
+        var countPosotionsInOrder = Random.Range(1, 2);
+        Debug.Log(countPosotionsInOrder);
+        for (int i = 0; i < countPosotionsInOrder; i++)
+        {
+            Debug.Log(menuOrder.name);
+            menuOrder.CreateOrderPosition(openRecipes[Random.Range(0, openRecipes.Count)]);
+        }
     }
 }

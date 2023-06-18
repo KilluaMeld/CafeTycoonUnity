@@ -18,7 +18,7 @@ public class AccountLevelView : MonoBehaviour
     }
     void UpdateLevelInfo(int level, float exp)
     {
-        _levelText.text = level.ToString() + " Level";
+        _levelText.text = level.ToString() + " " + ApplicationSettings.instance.Localizations.GetLocalization("level").Item2;
         _levelExpLine.fillAmount = exp/1000;
     }
     private void Update()

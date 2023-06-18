@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce505e711735274d9299c838ec9a80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _iconPrefab: {fileID: 4525831018184322204, guid: fa412c96b677b244487fda57f77ff636, type: 3}
+  _iconPrefab: {fileID: 5305636423899687605, guid: fa412c96b677b244487fda57f77ff636, type: 3}
   _questTransform: {fileID: 0}
-  _orderMenuPrefab: {fileID: 3344057880245597574, guid: 0ebb9e2a0448b9340831e86b9cbbba2b, type: 3}
+  _orderMenuPrefab: {fileID: 5358776805258803314, guid: 0ebb9e2a0448b9340831e86b9cbbba2b, type: 3}
   _canvasTransform: {fileID: 0}
+  _recipeOrderPrefab: {fileID: 2243559091613781161, guid: f37e6a48749239d468a32c19b2120874, type: 3}
